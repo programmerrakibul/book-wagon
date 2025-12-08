@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { FaEdit, FaBook } from "react-icons/fa";
 import Container from "../../shared/Container/Container";
 import useAuth from "../../../hooks/useAuth";
@@ -7,8 +7,10 @@ import useSecureAxios from "../../../hooks/useSecureAxios";
 import ActionSpinner from "../../../components/ActionSpinner/ActionSpinner";
 import { getAlert } from "../../../utilities/getAlert";
 import { toast } from "sonner";
+import Button from "../../../components/Button/Button";
 
 const MyBooks = () => {
+  const navigate = useNavigate();
   const { user } = useAuth();
   const secureAxios = useSecureAxios();
   const {
@@ -93,9 +95,7 @@ const MyBooks = () => {
                           <div className="avatar">
                             <div className="w-12 h-16 rounded">
                               <img
-                                src={
-                                  book.bookImage
-                                }
+                                src={book.bookImage}
                                 alt={book.bookName}
                                 className="object-cover"
                               />
@@ -208,12 +208,12 @@ const MyBooks = () => {
                 <p className="text-gray-500 mb-4">
                   You haven't added any books yet.
                 </p>
-                <Link
-                  to="/dashboard/add-book"
+                <Button
+                  handleClick={() => navigate("/dashboard/add-book")}
                   className="btn btn-primary mx-auto"
                 >
                   Add Your First Book
-                </Link>
+                </Button>
               </div>
             </div>
           )}
