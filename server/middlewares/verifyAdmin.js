@@ -3,8 +3,6 @@ const { usersCollection } = require("../db.js");
 const verifyAdmin = async (req, res, next) => {
   const email = req.decoded_email;
 
-  console.log(email);
-
   try {
     const user = await usersCollection.findOne({ email });
 
