@@ -4,7 +4,7 @@ Base URL: `http://localhost:8000`
 
 All protected endpoints require:
 
-```
+```plaintext
 Authorization: Bearer <firebase-id-token>
 ```
 
