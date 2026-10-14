@@ -32,7 +32,7 @@ auth, and Stripe for payments.
 Every business domain is a self-contained module under `src/modules/<domain>/`.
 Each module follows this exact structure:
 
-```
+```plaintext
 src/modules/<domain>/
 ├── interface/<domain>.ts      # TypeScript interfaces & types
 ├── model/<domain>.ts          # Mongoose schema & model
@@ -59,7 +59,7 @@ directories.
 
 ### 3.3 Data Flow
 
-```
+```plaintext
 Request → Route (middleware) → Controller → Service → Model → MongoDB
                                     ↓
                               parseOrThrow(schema, payload)
@@ -260,7 +260,7 @@ return getPaginatedData(result); // → { data: T[], pagination: {...} }
 
 ## 8. Module Dependency Graph
 
-```
+```plaintext
 User ←→ Book (librarianId, books[])
 User ←→ Order (customerId, librarianId, orders[])
 Book ←→ Category (categoryId)
